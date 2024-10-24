@@ -1,0 +1,79 @@
+[tool.poetry]
+name = "dddlitestar"
+version = "0.1.0"
+description = ""
+authors = ["daron035 <kamil249@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12.4"
+uvicorn = {extras = ["standard"], version = "^0.30.5"}
+uuid6 = "^2024.1.12"
+punq = "^0.7.0"
+pydantic = "^2.8.2"
+injector = "^0.22.0"
+adaptix = "^3.0.0b7"
+motor = "^3.5.1"
+aiokafka = "^0.11.0"
+orjson = "^3.10.6"
+aiojobs = "^1.3.0"
+asyncio = "^3.4.3"
+sqlalchemy = "^2.0.32"
+alembic = "^1.13.2"
+asyncpg = "^0.29.0"
+greenlet = "^3.0.3"
+structlog = "^24.4.0"
+fastapi = "^0.115.0"
+httpx = "^0.27.2"
+elastic-apm = "^6.23.0"
+apscheduler = "^3.10.4"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.7.1"
+ipython = "^8.26.0"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.2.2"
+pytest-asyncio = "^0.23.7"
+pytest-cov = "^5.0.0"
+testcontainers = "^4.8.1"
+
+[tool.poetry.group.lint]
+optional = true
+
+[tool.poetry.group.lint.dependencies]
+pylint = "^3.2.5"
+ruff = "^0.5.1"
+mypy = "^1.10.1"
+
+# [tool.mypy]
+# disallow_untyped_calls = false
+# disallow_untyped_defs = false
+# warn_return_any = false
+# warn_unused_ignores = false
+# disable_error_code = [
+#     "import-not-found",
+#     "assignment",
+#     "arg-type",
+#     "attr-defined",
+#     "valid-type",
+#     "no-redef",
+#     "misc"
+# ]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-p no:warnings"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

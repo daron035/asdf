@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: ninja.db
+    ports:
+      - "5232:${POSTGRES_PORT}"
+    volumes:
+      - ninja.postgres_data:/var/lib/postgresql/data
+    env_file:
+      - ../.env
+    networks:
+      - ninja.elastic
+
+volumes:
+  ninja.postgres_data:
+
+networks:
+  ninja.elastic:
+    driver: bridge
+
